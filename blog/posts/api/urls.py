@@ -7,5 +7,5 @@ urlpatterns = [
     path('api/posts/latest/', get_latest_posts),
     path('api/posts/popular/', get_popular_post),
     path('api/posts/slider/', get_slider_posts),
-    path('api/posts/<slug:slug>/', post_detail),
+    path('api/post/<slug:slug>/', post_detail),
 ]

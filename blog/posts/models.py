@@ -10,7 +10,10 @@ from users.models import Users
 class Posts(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, null=True, blank=True)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
+    # content = models.TextField() # For production
+    content = models.TextField(null=True, blank=True) # For testing
+    urlToImage = models.URLField(max_length=500, null=True, blank=True)
     author_id = models.ForeignKey(Users, related_name='blog_author', on_delete=models.CASCADE)
     visit = models.PositiveIntegerField(default=0)
     created_date = models.DateTimeField(auto_now_add=True)

@@ -16,7 +16,3 @@ class PostsSerializer(serializers.ModelSerializer):
     #     instance.date = validated_data.get('date', instance.date);
     #     instance.save();
     #     return instance;
-
-class PaginatedPostSerializer(pagination.PaginationSerializer):
-    class Meta:
-        object_serializer_class = PostsSerializer

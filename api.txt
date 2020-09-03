@@ -1,5 +1,5 @@
 api/posts/ -> Total posts and add new post
-api/posts/<slug>/ -> Get detail, update and delete existing post
+api/post/<slug>/ -> Get detail, update and delete existing post
 
 api/post/<slug>/comments/ -> Total comments of post with <slug> & add new comment belong to post <slug>
 api/post/comment/<id>/ -> Get detail, update & delete existing comment

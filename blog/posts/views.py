@@ -6,7 +6,7 @@ from .api.serializers import PostsSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from blog.pagination import CustomPagination
+from rest_framework.pagination import PageNumberPagination
 from django.core.paginator import Paginator
 from django.core.paginator import PageNotAnInteger
 from django.core.paginator import EmptyPage
@@ -33,23 +33,15 @@ def get_blog_paginate(request):
     if request.method == "GET":
         posts = Posts.objects.order_by('-created_date')
 
-        paginator = Paginator(posts, 20)
+        paginator = PageNumberPagination()
 
-        page = request.QUERY_PARAMS.get('page')
-        try:
-            posts_paginator = paginator.page(page)
-        except PageNotAnInteger:
-            # If page is not an integer, deliver first page.
-            posts_paginator = paginator.page(1)
-        except EmptyPage:
-            # If page is out of range (e.g. 9999),
-            # deliver last page of results.
-            posts_paginator = paginator.page(paginator.num_pages)
+        paginator.page_size = 10
 
-        serializer_context = {'request': request}
-        serializer = PaginatedPostSerializer(users, context=serializer_context)
-        return Response(serializer.data)
-        pass
+        result_page = paginator.paginate_queryset(posts, request=request)
+
+        serializer = PostsSerializer(result_page, many=True)
+
+        return paginator.get_paginated_response(serializer.data)
     return Response(status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(["GET"])
