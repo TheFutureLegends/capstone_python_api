@@ -1,0 +1,13 @@
+Django==3.0
+Pillow==7.2.0
+wheel==0.35.1
+django-crispy-forms==1.9.2
+markdown2==2.3.9
+django-pagedown==2.1.2
+django-markdown-deux==1.0.5
+mysqlclient==2.0.1
+djangorestframework==3.11.1
+Markdown==3.2.2
+django-filter==2.3.0
+django-cors-headers==3.5.0
+django-seed==0.2.2

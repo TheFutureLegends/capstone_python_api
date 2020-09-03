@@ -1,0 +1,54 @@
+[
+  {
+    "model": "posts_comments.postcomments",
+    "pk": 1,
+    "fields": {
+      "content": "First comment",
+      "name": "leon",
+      "email": "leonguyen0202@gmail.com",
+      "post_id": 1,
+      "parent_id": null,
+      "created_at": "2020-08-31T11:09:33Z",
+      "updated_at": "2020-08-31T11:09:33Z"
+    }
+  },
+  {
+    "model": "posts_comments.postcomments",
+    "pk": 2,
+    "fields": {
+      "content": "Second comment",
+      "name": "leon",
+      "email": "leonguyen0202@gmail.com",
+      "post_id": 1,
+      "parent_id": null,
+      "created_at": "2020-08-31T11:09:33Z",
+      "updated_at": "2020-08-31T11:09:33Z"
+    }
+  },
+  {
+    "model": "posts_comments.postcomments",
+    "pk": 3,
+    "fields": {
+      "content": "First reply of first comment",
+      "name": "leon",
+      "email": "leonguyen0202@gmail.com",
+      "post_id": 1,
+      "parent_id": 1,
+      "created_at": "2020-08-31T11:09:33Z",
+      "updated_at": "2020-08-31T11:09:33Z"
+    }
+  },
+  {
+    "model": "posts_comments.postcomments",
+    "pk": 4,
+    "fields": {
+      "content": "First comment of second post",
+      "name": "leon",
+      "email": "leonguyen0202@gmail.com",
+      "post_id": 2,
+      "parent_id": null,
+      "created_at": "2020-08-31T11:09:33Z",
+      "updated_at": "2020-08-31T11:09:33Z"
+    }
+  }
+]

@@ -1,0 +1,8 @@
+api/posts/ -> Total posts and add new post
+api/posts/<slug>/ -> Get detail, update and delete existing post
+
+api/post/<slug>/comments/ -> Total comments of post with <slug> & add new comment belong to post <slug>
+api/post/comment/<id>/ -> Get detail, update & delete existing comment
+
+api/post/<slug>/comment/<comment_id>/replies/ -> Total replies of comment with id and post with <slug> & add new reply belong to post with <slug> and comment with <id>
+api/post/<slug>/comment/<comment_id>/replies/<reply_id>/ -> Get detail, update & delete existing reply
