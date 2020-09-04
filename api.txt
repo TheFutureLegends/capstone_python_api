@@ -1,5 +1,8 @@
 api/posts/ -> Total posts and add new post
 api/post/<slug>/ -> Get detail, update and delete existing post
+api/posts/paginator/ -> Get post order by created_date as page
+api/posts/latest/ -> Get 3 latest posts
+api/posts/popular/ -> Get 3 posts with most visits
 
 api/post/<slug>/comments/ -> Total comments of post with <slug> & add new comment belong to post <slug>
 api/post/comment/<id>/ -> Get detail, update & delete existing comment

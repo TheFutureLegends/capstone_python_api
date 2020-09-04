@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from posts.models import Posts
+from rest_framework.permissions import IsAuthenticated
 
 class PostsSerializer(serializers.ModelSerializer):
     class Meta:
