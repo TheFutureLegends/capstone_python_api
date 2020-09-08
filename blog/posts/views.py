@@ -11,6 +11,7 @@ from django.core.paginator import Paginator
 from django.core.paginator import PageNotAnInteger
 from django.core.paginator import EmptyPage
 from rest_framework.permissions import IsAuthenticated
+import json
 
 # Create your views here.
 @api_view(["GET"])
@@ -81,7 +82,21 @@ def post_detail(request, slug):
         return Response(serializer.data)
 
     return Response(status=status.HTTP_400_BAD_REQUEST)
-# For Admin Token
+# For Admin
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def post_edit(request, slug):
+    if request.method == "GET":
+        try:
+            posts = Posts.objects.get(slug=slug, author_id=request.user.id)
+        except Posts.DoesNotExist:
+            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = PostsSerializer(posts, many=True)
+        
+        return Response(serializer.data)
+    return Response(status=status.HTTP_400_BAD_REQUEST)
+
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def post_store(request):
@@ -96,11 +111,11 @@ def post_store(request):
 
     return Response(status=status.HTTP_401_UNAUTHORIZED)
 
-@api_view(["PUT", "DELETE"])
+@api_view(["PUT"])
 @permission_classes([IsAuthenticated])
 def post_update(request, slug):
     try:
-        post = Posts.objects.get(slug=slug)
+        post = Posts.objects.filter(slug=slug, author_id=request.user.id).first()
     except Posts.DoesNotExist:
         return HttpResponse(status=status.HTTP_404_NOT_FOUND)
 
@@ -111,7 +126,21 @@ def post_update(request, slug):
             serializer.save();
             return Response(serializer.data);
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == "DELETE":
+
+    return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+@api_view(["DELETE"])
+@permission_classes([IsAuthenticated])
+def post_delete(request, slug):
+    user = request.user.id
+    
+    try:
+        post = Posts.objects.filter(slug=slug, author_id=user).first()
+    except Posts.DoesNotExist:
+        return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == "DELETE":
         post.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+        
     return Response(status=status.HTTP_401_UNAUTHORIZED)

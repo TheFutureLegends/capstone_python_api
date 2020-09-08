@@ -1,9 +1,10 @@
 from django.db import models
 from django.db.models.signals import pre_save
+from django.contrib.auth.models import User
 
 from blog.utils import unique_slug_generator
 
-from users.models import Users
+# from users.models import Users
 
 # Create your models here.
 
@@ -14,7 +15,7 @@ class Posts(models.Model):
     # content = models.TextField() # For production
     content = models.TextField(null=True, blank=True) # For testing
     urlToImage = models.URLField(max_length=500, null=True, blank=True)
-    author_id = models.ForeignKey(Users, related_name='blog_author', on_delete=models.CASCADE)
+    author_id = models.ForeignKey(User, related_name='blog_author', on_delete=models.CASCADE)
     visit = models.PositiveIntegerField(default=0)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now_add=True)

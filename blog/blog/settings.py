@@ -41,13 +41,15 @@ INSTALLED_APPS = [
     'posts',
     'posts_comments',
     'showcases',
-    'users',
+    # 'users',
 
     # Third party
     'rest_framework',
     'corsheaders',
     'django_seed',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'rest_framework_simplejwt',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -62,9 +64,6 @@ MIDDLEWARE = [
 ]
 
 REST_FRAMEWORK = {
-    # "DEFAULT_PERMISSION_CLASSES": [
-    #     'rest_framework.permissions.IsAuthenticated',
-    # ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],

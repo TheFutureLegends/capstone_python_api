@@ -22,8 +22,10 @@ urlpatterns = [
     path('', include('posts.api.urls')),
     path('', include('posts_comments.api.urls')),
     path('', include('showcases.api.urls')),
-    path('', include('users.api.urls')),
+    # path('', include('users.api.urls')),
 
-    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    # path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+
+    path('auth/', include('auth_app.api.urls')),
 ]
