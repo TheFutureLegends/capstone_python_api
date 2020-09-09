@@ -6,6 +6,7 @@ urlpatterns = [
     path("", include('djoser.urls.jwt'))
 ]
 
+
 # Method: POST
 # /auth/users/ -> register new user in auth_user table
 #### Params: username, email, password
