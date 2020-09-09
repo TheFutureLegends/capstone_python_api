@@ -15,4 +15,4 @@ urlpatterns = [
 
 # /auth/users/me/ -> get current authenticated user
 #### Headers: Bearer + access
-#### Response: {username: "", email: "", id: <int>} 
+#### Response: {username: "", email: "", id: <int>}
