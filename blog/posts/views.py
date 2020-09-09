@@ -13,6 +13,7 @@ from django.core.paginator import EmptyPage
 from rest_framework.permissions import IsAuthenticated
 import json
 
+
 # Create your views here.
 @api_view(["GET"])
 def get_slider_posts(request):
@@ -22,17 +23,18 @@ def get_slider_posts(request):
         return Response(serializer.data)
     return Response(status=status.HTTP_400_BAD_REQUEST)
 
+
 @api_view(["GET"])
 def get_latest_posts(request):
     if request.method == "GET":
-
         posts = Posts.objects.order_by('-created_date')[:3]
-        
+
         serializer = PostsSerializer(posts, many=True)
-        
+
         return Response(serializer.data)
-    
+
     return Response(status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(["GET"])
 def get_blog_paginate(request):
@@ -51,6 +53,7 @@ def get_blog_paginate(request):
 
     return Response(status=status.HTTP_400_BAD_REQUEST)
 
+
 @api_view(["GET"])
 def get_popular_post(request):
     if request.method == "GET":
@@ -61,6 +64,7 @@ def get_popular_post(request):
 
     return Response(status=status.HTTP_400_BAD_REQUEST)
 
+
 @api_view(["GET"])
 def post_list(request):
     if request.method == "GET":
@@ -69,6 +73,7 @@ def post_list(request):
         return Response(serializer.data)
 
     return Response(status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(["GET"])
 def post_detail(request, slug):
@@ -82,6 +87,8 @@ def post_detail(request, slug):
         return Response(serializer.data)
 
     return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
 # For Admin
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
@@ -93,9 +100,10 @@ def post_edit(request, slug):
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
 
         serializer = PostsSerializer(posts, many=True)
-        
+
         return Response(serializer.data)
     return Response(status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
@@ -111,6 +119,7 @@ def post_store(request):
 
     return Response(status=status.HTTP_401_UNAUTHORIZED)
 
+
 @api_view(["PUT"])
 @permission_classes([IsAuthenticated])
 def post_update(request, slug):
@@ -123,17 +132,18 @@ def post_update(request, slug):
         serializer = PostsSerializer(post, data=request.data)
 
         if serializer.is_valid():
-            serializer.save();
-            return Response(serializer.data);
+            serializer.save()
+            return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     return Response(status=status.HTTP_401_UNAUTHORIZED)
+
 
 @api_view(["DELETE"])
 @permission_classes([IsAuthenticated])
 def post_delete(request, slug):
     user = request.user.id
-    
+
     try:
         post = Posts.objects.filter(slug=slug, author_id=user).first()
     except Posts.DoesNotExist:
@@ -142,5 +152,5 @@ def post_delete(request, slug):
     if request.method == "DELETE":
         post.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
-        
+
     return Response(status=status.HTTP_401_UNAUTHORIZED)
