@@ -99,10 +99,10 @@ CORS_ORIGIN_WHITELIST = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blog_django',
-        'USER': 'root',
-        'PASSWORD': 'Vietnam2020',
-        'HOST': '127.0.0.1',
+        'NAME': 'qkRBpUO2yX',
+        'USER': 'qkRBpUO2yX',
+        'PASSWORD': 'GQzrRoCa8E',
+        'HOST': 'remotemysql.com',
         'PORT': '3306'
     }
 }
