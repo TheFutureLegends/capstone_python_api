@@ -1,12 +1,12 @@
 from rest_framework import serializers
 from posts_comments.models import PostComments
 
+
 class PostCommentsSerializer(serializers.ModelSerializer):
-    # content = serializers.TextField()
-    # post_id = serializers.ForeignKey(Posts, related_name="post_id", on_delete=models.CASCADE)
-    # parent_id = serializers.ForeignKey('self', related_name="comment_parent", null=True, blank=True, on_delete=models.CASCADE)
-    # created_at = serializers.DateTimeField(auto_now_add=True)
-    # updated_at = serializers.DateTimeField(auto_now_add=True)
+    # content = serializers.TextField() post_id = serializers.ForeignKey(Posts, related_name="post_id",
+    # on_delete=models.CASCADE) parent_id = serializers.ForeignKey('self', related_name="comment_parent", null=True,
+    # blank=True, on_delete=models.CASCADE) created_at = serializers.DateTimeField(auto_now_add=True) updated_at =
+    # serializers.DateTimeField(auto_now_add=True)
 
     class Meta:
         model = PostComments

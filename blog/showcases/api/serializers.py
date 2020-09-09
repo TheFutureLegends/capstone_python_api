@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from showcases.models import Showcases
 
+
 class ShowcaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Showcases
