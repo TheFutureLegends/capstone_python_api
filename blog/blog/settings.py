@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'djoser',
+
+    #generate object diagram
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -102,6 +105,7 @@ DATABASES = {
         'PASSWORD': 'GQzrRoCa8E',
         'HOST': 'remotemysql.com',
         'PORT': '3306',
+        'TEST_NAME': 'test_qkRBpUO2yX',
     }
 }
 
