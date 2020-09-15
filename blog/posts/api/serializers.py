@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from posts.models import Posts
+from blog.posts.models import Posts
 from rest_framework.permissions import IsAuthenticated
 
 

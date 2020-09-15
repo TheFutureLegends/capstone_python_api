@@ -1,5 +1,5 @@
 from django.urls import path, include
-from auth_app import views
+from blog.auth_app import views
 
 urlpatterns = [
     path("", include('djoser.urls')),

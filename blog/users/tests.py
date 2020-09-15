@@ -1,6 +1,6 @@
 from django.test import TestCase
 from rest_framework.test import APITestCase
-from users.models import Users
+from blog.users.models import Users
 
 
 # Create your tests here.
