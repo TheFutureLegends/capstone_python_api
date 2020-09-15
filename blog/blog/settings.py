@@ -99,10 +99,10 @@ CORS_ORIGIN_WHITELIST = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blog_django',
-        'USER': 'root',
-        'PASSWORD': 'Vietnam2020',
-        'HOST': '127.0.0.1',
+        'NAME': 'my-capstone',
+        'USER': 'admin',
+        'PASSWORD': 'heoconlonton',
+        'HOST': 'my-capstone.czfdj4uu1oft.ap-southeast-1.rds.amazonaws.com',
         'PORT': '3306'
     }
 }

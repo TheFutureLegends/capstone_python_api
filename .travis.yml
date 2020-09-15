@@ -9,17 +9,15 @@ script:
 after_success:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - docker push minhpro332/capstone
-# DOCKER_PASSWORD = minhpro332
-# DOCKER_USERNAME = minhpro332
 
-# deploy:
-#   provider: elasticbeanstalk
-#   region: ap-southeast-1
-#   app: movie-booking
-#   env: MovieBooking-env-1
-#   bucket_name: elasticbeanstalk-ap-southeast-1-792974750178
-#   bucket_path: movie-booking
-#   on:
-#     branch: dockerized
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_access_key: $AWS_SECRET_KEY
+deploy:
+  provider: elasticbeanstalk
+  region: ap-southeast-1
+  app: my-capstone
+  env: MyCapstone-env
+  bucket_name: elasticbeanstalk-ap-southeast-1-792974750178
+  bucket_path: my-capstone
+  on:
+    branch: feature/dockerized
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY

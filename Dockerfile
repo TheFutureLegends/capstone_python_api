@@ -14,8 +14,6 @@ COPY . ./
 RUN apt-get update
 
 # Set up Linux environment for installing Pillow
-# RUN apt-get install gcc libtiff5-dev libjpeg62-turbo-dev zlib1g-dev libfreetype6-dev \
-#     liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev tcl8.6-dev tk8.6-dev python-tk -y
 RUN apt-get install gcc libjpeg62-turbo-dev -y
 
 # Set up Linux environment for installing mysqlclient
@@ -25,11 +23,11 @@ RUN apt-get install default-libmysqlclient-dev -y
 RUN pip install -r requirements.txt
 
 # Run data migration
-RUN python3 ./blog/manage.py makemigrations \
-    && python3 ./blog/manage.py migrate
+RUN python3 manage.py makemigrations
+RUN python3 manage.py migrate
 
 # Expose port 8000 so that other applications can connect to this container
 EXPOSE 8000
 
 # Run this command when "docker run" is used to start the container
-ENTRYPOINT ["python3",  "./blog/manage.py runserver 0.0.0.0:8000"]
+ENTRYPOINT ["python3",  "manage.py runserver 0.0.0.0:8000"]
