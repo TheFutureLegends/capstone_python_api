@@ -16,7 +16,7 @@ RUN apt-get update
 # Set up Linux environment for installing Pillow
 # RUN apt-get install gcc libtiff5-dev libjpeg62-turbo-dev zlib1g-dev libfreetype6-dev \
 #     liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev tcl8.6-dev tk8.6-dev python-tk -y
-RUN apt-get install gcc libjpeg62-turbo-dev zlib1g-dev -y
+RUN apt-get install gcc libjpeg62-turbo-dev -y
 
 # Set up Linux environment for installing mysqlclient
 RUN apt-get install python3-dev default-libmysqlclient-dev -y
