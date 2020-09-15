@@ -19,13 +19,13 @@ from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('posts.api.urls')),
-    path('', include('posts_comments.api.urls')),
-    path('', include('showcases.api.urls')),
+    path('', include('blog.posts.api.urls')),
+    path('', include('blog.posts_comments.api.urls')),
+    path('', include('blog.showcases.api.urls')),
     # path('', include('users.api.urls')),
 
     # path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 
-    path('auth/', include('auth_app.api.urls')),
+    path('auth/', include('blog.auth_app.api.urls')),
 ]
