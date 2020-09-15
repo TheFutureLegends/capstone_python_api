@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # App
-    'blog/posts',
-    'blog/posts_comments',
-    'blog/showcases',
+    'blog.posts',
+    'blog.posts_comments',
+    'blog.showcases',
     # 'users',
 
     # Third party
