@@ -5,8 +5,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-from posts.models import Posts
-from posts.api.serializers import PostsSerializer
+from blog.posts.models import Posts
+from blog.posts.api.serializers import PostsSerializer
 from .models import PostComments
 from .api.serializers import PostCommentsSerializer
 
