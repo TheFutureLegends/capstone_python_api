@@ -85,6 +85,15 @@ def post_detail(request, slug):
 # For Admin
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
+def post_dataTable(request):
+    posts = Posts.objects.filter(author_id=request.user.id).order_by('-created_date')
+
+    serializer = PostsSerializer(posts, many=True)
+    
+    return Response(serializer.data)
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
 def post_edit(request, slug):
     if request.method == "GET":
         try:
@@ -111,11 +120,26 @@ def post_store(request):
 
     return Response(status=status.HTTP_401_UNAUTHORIZED)
 
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def post_edit(request, slug):
+    if request.method == "GET":
+        try:
+            post = Posts.objects.get(slug=slug, author_id=request.user.id)
+        except Posts.DoesNotExist:
+            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = PostsSerializer(post)
+        
+        return Response(serializer.data)
+
+    return Response(status=status.HTTP_400_BAD_REQUEST)
+
 @api_view(["PUT"])
 @permission_classes([IsAuthenticated])
 def post_update(request, slug):
     try:
-        post = Posts.objects.filter(slug=slug, author_id=request.user.id).first()
+        post = Posts.objects.get(slug=slug, author_id=request.user.id)
     except Posts.DoesNotExist:
         return HttpResponse(status=status.HTTP_404_NOT_FOUND)
 
