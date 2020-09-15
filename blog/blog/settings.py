@@ -99,7 +99,7 @@ CORS_ORIGIN_WHITELIST = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'my-capstone',
+        'NAME': 'capstonedb',
         'USER': 'admin',
         'PASSWORD': 'heoconlonton',
         'HOST': 'my-capstone.czfdj4uu1oft.ap-southeast-1.rds.amazonaws.com',
