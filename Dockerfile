@@ -19,7 +19,7 @@ RUN apt-get update
 RUN apt-get install gcc libjpeg62-turbo-dev -y
 
 # Set up Linux environment for installing mysqlclient
-RUN apt-get install python3-dev default-libmysqlclient-dev -y
+RUN apt-get install default-libmysqlclient-dev -y
 
 # Install all required dependencies for the app
 RUN pip install -r requirements.txt
