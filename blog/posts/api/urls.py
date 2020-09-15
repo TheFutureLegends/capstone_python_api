@@ -1,5 +1,5 @@
 from django.urls import path
-from posts.views import post_list, post_detail, post_dataTable, post_store, post_edit, post_update, post_delete, get_popular_post, get_slider_posts, get_latest_posts, get_blog_paginate
+from blog.posts.views import post_list, post_detail, post_dataTable, post_store, post_edit, post_update, post_delete, get_popular_post, get_slider_posts, get_latest_posts, get_blog_paginate
 
 urlpatterns = [
     path('api/posts/', post_list),

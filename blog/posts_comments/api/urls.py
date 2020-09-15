@@ -1,5 +1,5 @@
 from django.urls import path
-from posts_comments.views import comment_list, comment_detail, reply_list, reply_detail
+from blog.posts_comments.views import comment_list, comment_detail, reply_list, reply_detail
 
 urlpatterns = [
     # comment
