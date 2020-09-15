@@ -5,15 +5,12 @@ sudo: required
 services:
   - docker
 before_install:
-  - apt-get update
-  - apt-get install gcc libtiff5-dev libjpeg62-turbo-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev tcl8.6-dev tk8.6-dev python-tk -y
-  - apt-get install python3-dev default-libmysqlclient-dev -y
+    - docker build -t minhpro332/capstone .
 script:
-  - docker build -t minhpro332/capstone .
-  - docker run -d -p 8000:8000 minhpro332/capstone
+    - docker run -d -p 8000:8000 minhpro332/capstone
 after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push minhpro332/capstone
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker push minhpro332/capstone
 # DOCKER_PASSWORD = minhpro332
 # DOCKER_USERNAME = minhpro332
 
