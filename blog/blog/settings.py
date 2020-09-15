@@ -87,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'blog.wsgi.application'
+WSGI_APPLICATION = 'blog.blog.wsgi.application'
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',

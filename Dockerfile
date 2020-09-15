@@ -30,4 +30,4 @@ RUN python3 manage.py migrate
 EXPOSE 8000
 
 # Run this command when "docker run" is used to start the container
-ENTRYPOINT ["python3",  "manage.py runserver 0.0.0.0:8000"]
+ENTRYPOINT ["python3",  "manage.py", "runserver"]
