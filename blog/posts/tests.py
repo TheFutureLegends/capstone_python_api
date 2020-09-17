@@ -12,7 +12,9 @@ class PostTestCase(APITestCase):
             'title': 'This is the mocking post',
             'description': 'For capstone project',
             'content': 'testing content',
-            'urlToImage': 'https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.learningaboutelectronics.com%2FArticles%2FHow-to-create-a-SlugField-in-Django.php&psig=AOvVaw0rNnjBnWoOmDSvxDDNNgYL&ust=1599540534846000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjNzfme1usCFQAAAAAdAAAAABAD',
+            'urlToImage': 'https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.learningaboutelectronics.com'
+                          '%2FArticles%2FHow-to-create-a-SlugField-in-Django.php&psig=AOvVaw0rNnjBnWoOmDSvxDDNNgYL'
+                          '&ust=1599540534846000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjNzfme1usCFQAAAAAdAAAAABAD',
             'visit': 10,
             'author_id': 1
         }
